@@ -65,8 +65,55 @@
       output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
     });
 
+    // Step 2 - Adding Buttons for Console Testing
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
-    // TODO - Make buttons functional
+    for (var i = 0; i < errorBtns.length; i++) {
+      let name = errorBtns[i].innerHTML;
+      errorBtns[i].addEventListener('click', function () {
+        if (name.includes("Log")) { 
+          console.log("Console Log Demo: Console log button clicked");
+        } else if (name.includes("Dir")) {
+          console.dir("Console Log Demo: Console Dir button clicked");
+        } else if (name.includes('Dirxml')) {
+          console.log("Console Log Demo: Console Dirxml button clicked")
+          console.dirxml(calculateBtn);
+        } else if (name.includes('Table')) {
+          console.log("Console Log Demo: Console Tabel button clicked")
+          console.table(errorBtns);
+        } else if (name.includes('Group Start')) {
+          console.log("Console Log Demo: Console Group Start button clicked")
+          console.group();
+        } else if (name.includes('Group End')) {
+          console.log("Console Log Demo: Console Group End button clicked")
+          console.groupEnd();
+        } else if (name.includes('Start Timer')) {
+          console.log("Console Log Demo: Console Start Timer button clicked")
+          console.time()
+        } else if (name.includes('End Timer')) {
+          console.log("Console Log Demo: Console Ener Timer button clicked")
+          console.timeEnd()
+        } else if (name.includes('Trace')) {
+          console.log("Console Log Demo: Console Trace button clicked")
+          console.trace();
+        } else if (name.includes('Error')) {
+          console.error("Console Log Demo: Console Error button tapped");
+          try { // Step 3 - Trying Try/Catch
+            // code...
+          } catch (err) {
+            console.error("Catching Error")
+          }
+        }
+      });
+    }
+
+    // Step 4 - Throw and Custom Errors
+    class CustomError extends Error {
+
+    }
+
+    // Step 5 - The Global Error handler and 3rd Party Tracking
+
+  
   </script>
 </body>
 </html>
