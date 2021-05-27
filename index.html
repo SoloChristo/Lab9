@@ -43,8 +43,8 @@
 
   <section id="error-btns">
     <button id="log" type="console_log">Console Log Demo</button>
-    <button id="error" type="console_error"> Cons ole Error Demo </button>
-    <button id="dir"  type="con sole_dir">Console Dir</button>
+    <button id="error" type="console_error"> Console Error Demo </button>
+    <button id="dir"  type="console_dir">Console Dir</button>
     <button id="dirxml" type="console_dirxml">Console dirxml</button>
     <button id="start" type="console_grp_start">Console Group Start</button>
     <button id="end" type="console_grp_end">Console Group End</button>
@@ -54,6 +54,17 @@
     <button id="trace" type="console_trace">Console Trace</button>
     <button id="error" type="global_error">Trigger a Global Error</button>
   </section>
+
+  // Step 5
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "dc0c484c1905498ca7d742c21e241dfe",
+      application: "calculator"
+    });
+  </script>
+
+  TrackJS.track('Testing TrackJS!');
 
   <script>
     let calculateBtn = document.querySelector('#calculate');
@@ -96,22 +107,45 @@
           console.log("Console Log Demo: Console Trace button clicked")
           console.trace();
         } else if (name.includes('Error')) {
-          console.error("Console Log Demo: Console Error button tapped");
-          try { // Step 3 - Trying Try/Catch
-            // code...
-          } catch (err) {
-            console.error("Catching Error")
-          }
+          console.error("Console Log Demo: Console Error button clicked");
         }
       });
     }
 
-    // Step 4 - Throw and Custom Errors
-    class CustomError extends Error {
-
+    // Step 3 - Trying Try/Catch
+    try {
+      // errorBtns[0].document.querySelector(1); 
+    } catch (err) {
+      console.error(err);
+    } finally {
+      console.log("finally, Amanda!");
     }
 
-    // Step 5 - The Global Error handler and 3rd Party Tracking
+    // Step 4 - Throw and Custom Errors
+  //   class Error {
+  //   constructor(message) {
+  //   this.message = message;
+  //   this.name = "Error"; // (different names for different built-in error classes)
+  //   this.stack = <call stack>; // non-standard, but most environments support it
+  //   }
+  // }
+    class ValidationError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = this.constructor.name;
+      }
+    }
+
+    function test() {
+      throw new ValidationError("Whoops!");
+    }
+    try {
+      test();
+    } catch (error) {
+      alert(error.message);
+      alert(error.name);
+      alert(error.stack);
+    }
 
   
   </script>
