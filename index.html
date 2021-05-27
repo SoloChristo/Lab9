@@ -42,17 +42,17 @@
   </fieldset>
 
   <section id="error-btns">
-    <button>Console Log Demo</button>
-    <button>Console Error Demo</button>
-    <button>Console Dir</button>
-    <button>Console dirxml</button>
-    <button>Console Group Start</button>
-    <button>Console Group End</button>
-    <button>Console Table</button>
-    <button>Start Timer</button>
-    <button>End Timer</button>
-    <button>Console Trace</button>
-    <button>Trigger a Global Error</button>
+    <button id="log" type="con sole_leConso le Log Demo</button>
+    <button id=" error" type="co nsole_error">Cons ole Error Demo</button>
+    <button id="dir"  type="con sole_dir"> Console Dir</button>
+    <button id="dirxml" type="console_dirxml"> Console dirxml </button>
+    <button id="start" type="console_grp_start"> Console Group Start </button>
+    <button id="end" type="console_grp_end"> Console Group End </button>
+    <button id="table" type="console_table"> Console Table </button>
+    <button id="start" type="start_timer"> Start Timer </button>
+    <button id="end" type="end_timer"> End Timer </button>
+    <button id="trace" type="console_trace">Console Trace</button>
+    <button id="error" type="global_error">Trigger a Global Error</button>
   </section>
 
   <script>
@@ -67,6 +67,7 @@
 
     // Step 2 - Adding Buttons for Console Testing
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
+<<<<<<< HEAD
     for (var i = 0; i < errorBtns.length; i++) {
       let name = errorBtns[i].innerHTML;
       errorBtns[i].addEventListener('click', function () {
@@ -114,6 +115,17 @@
     // Step 5 - The Global Error handler and 3rd Party Tracking
 
   
+=======
+    // TODO - Make buttons functional
+
+    errorBtns.addEventListener('click', (e) => {
+      e.preventDefault();
+      drawText();
+
+      enableButtonsSubmit();
+
+});
+>>>>>>> b16ceeb0f3312da48d9b2832bb8e4e12bb225118
   </script>
 </body>
 </html>
