@@ -24,31 +24,6 @@
       width: 240px;
     }
   </style>
-  <!-- <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS && TrackJS.install({ 
-      token: "66ec9c98e08d4056bfe28f8fc50e586e"
-      // for more configuration options, see https://docs.trackjs.com
-    });
-  </script>                         -->
-  <!-- <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS && TrackJS.install({ 
-      token: "66ec9c98e08d4056bfe28f8fc50e586e",
-      application: "calculator"
-    });
-  </script>  
-   -->
-<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-<script>
-  window.TrackJS && TrackJS.install({ 
-    token: "dc0c484c1905498ca7d742c21e241dfe",
-    // for more configuration options, see https://docs.trackjs.com
-    application: "calculator"
-  });
-</script>        
-
-  <!-- TrackJS.track("Testing TrackJS!"); --> 
 
 </head>
 <body>
@@ -81,6 +56,15 @@
     <button id="error" type="global_error">Trigger a Global Error</button>
   </section>
 
+  // Step 5 - The Global Error handler and 3rd Party Tracking
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "dc0c484c1905498ca7d742c21e241dfe"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+                        
   <script>
     let calculateBtn = document.querySelector('#calculate');
     calculateBtn.addEventListener('click', () => {
@@ -136,13 +120,7 @@
     }
 
   //   Step 4 - Throw and Custom Errors
-  //   class Error {
-  //   constructor(message) {
-  //   this.message = message;
-  //   this.name = "Error"; // (different names for different built-in error classes)
-  //   this.stack = <call stack>; // non-standard, but most environments support it
-  //   }
-  // }
+
     class ValidationError extends Error {
       constructor(message) {
         super(message);
@@ -160,9 +138,6 @@
       alert(error.name);
       alert(error.stack);
     }
-  
-    // Step 5 - The Global Error handler and 3rd Party Tracking
-
   
   </script>
 </body>
