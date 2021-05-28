@@ -24,6 +24,22 @@
       width: 240px;
     }
   </style>
+  <!-- <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "66ec9c98e08d4056bfe28f8fc50e586e"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>                         -->
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "66ec9c98e08d4056bfe28f8fc50e586e",
+      application: "calculator"
+    });
+  </script>          
+
+  TrackJS.track("Testing TrackJS!");
 </head>
 <body>
   <fieldset>
@@ -54,17 +70,6 @@
     <button id="trace" type="console_trace">Console Trace</button>
     <button id="error" type="global_error">Trigger a Global Error</button>
   </section>
-
-  // Step 5
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS && TrackJS.install({ 
-      token: "dc0c484c1905498ca7d742c21e241dfe",
-      application: "calculator"
-    });
-  </script>
-
-  TrackJS.track('Testing TrackJS!');
 
   <script>
     let calculateBtn = document.querySelector('#calculate');
@@ -132,7 +137,7 @@
     class ValidationError extends Error {
       constructor(message) {
         super(message);
-        this.name = this.constructor.name;
+        this.name = "ValidationError";
       }
     }
 
@@ -146,6 +151,8 @@
       alert(error.name);
       alert(error.stack);
     }
+  
+    // Step 5 - The Global Error handler and 3rd Party Tracking
 
   
   </script>
