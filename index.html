@@ -56,7 +56,7 @@
     <button id="error" type="global_error">Trigger a Global Error</button>
   </section>
 
-  // Step 5 - The Global Error handler and 3rd Party Tracking
+  <!-- Step 5 - The Global Error handler and 3rd Party Tracking -->
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
     <script>
     window.TrackJS && TrackJS.install({ 
@@ -107,20 +107,20 @@
           console.trace();
         } else if (name.includes('Error')) {
           console.error("Console Log Demo: Console Error button clicked");
-        } else {
-          try { // Step 3 - Trying Try/Catch
-            errorBtns[0].document.querySelector(1); 
-          } catch (err) {
-            console.error(err);
-          } finally {
-            console.log("finally, Amanda!");
-          }
         }
       });
     }
 
-  //   Step 4 - Throw and Custom Errors
+    // Step 3 - Trying Try/Catch
+    try {
+      errorBtns[0].document.querySelector(1); 
+    } catch (err) {
+      console.error(err);
+    } finally {
+      console.log("finally, Amanda!");
+    }
 
+    // Step 4 - Throw and Custom Errors
     class ValidationError extends Error {
       constructor(message) {
         super(message);
