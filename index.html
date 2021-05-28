@@ -31,15 +31,25 @@
       // for more configuration options, see https://docs.trackjs.com
     });
   </script>                         -->
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <!-- <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS && TrackJS.install({ 
       token: "66ec9c98e08d4056bfe28f8fc50e586e",
       application: "calculator"
     });
-  </script>          
+  </script>  
+   -->
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "dc0c484c1905498ca7d742c21e241dfe",
+    // for more configuration options, see https://docs.trackjs.com
+    application: "calculator"
+  });
+</script>        
 
-  TrackJS.track("Testing TrackJS!");
+  <!-- TrackJS.track("Testing TrackJS!"); --> 
+
 </head>
 <body>
   <fieldset>
@@ -113,20 +123,19 @@
           console.trace();
         } else if (name.includes('Error')) {
           console.error("Console Log Demo: Console Error button clicked");
+        } else {
+          try { // Step 3 - Trying Try/Catch
+            errorBtns[0].document.querySelector(1); 
+          } catch (err) {
+            console.error(err);
+          } finally {
+            console.log("finally, Amanda!");
+          }
         }
       });
     }
 
-    // Step 3 - Trying Try/Catch
-    try {
-      // errorBtns[0].document.querySelector(1); 
-    } catch (err) {
-      console.error(err);
-    } finally {
-      console.log("finally, Amanda!");
-    }
-
-    // Step 4 - Throw and Custom Errors
+  //   Step 4 - Throw and Custom Errors
   //   class Error {
   //   constructor(message) {
   //   this.message = message;
