@@ -1,6 +1,7 @@
 # Lab9
 
-## Authors
+### Authors
 Amanda Quach and Alec Smith
 
-Github Pages link: https://amquach00.github.io/Lab9-1/
+### Github Pages link: 
+https://amquach00.github.io/Lab9-1/
